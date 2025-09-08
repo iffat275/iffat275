@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iffat Shaikh - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-color: #6a11cb;
+            --secondary-color: #2575fc;
+            --accent-color: #ff6b6b;
+            --pink-color: #ff6b9d;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --text-color: #333;
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .contact-info a:hover {
+            color: var(--accent-color);
+        }
+        
+        section {
+            padding: 3rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .objective {
+            text-align: center;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .education-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .education-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .education-details {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+            color: #666;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .skill {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .language-skill {
+            background: linear-gradient(to right, #ff6b6b, #ff8e8e);
+        }
+        
+        .projects, .quizzes, .achievements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card, .quiz-card, .achievement-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .project-card:hover, .quiz-card:hover, .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .project-card h3, .quiz-card h3, .achievement-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .status {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+        
+        .experience-content {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .project-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+        
+        .project-link:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+        
+        .achievement-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--pink-color), #ff4b83);
+        }
+        
+        .ribbon {
+            position: absolute;
+            top: 10px;
+            right: -30px;
+            transform: rotate(45deg);
+            background: var(--pink-color);
+            color: white;
+            padding: 5px 40px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        footer {
+            background: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .education-details {
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <!-- Professional pink profile image placeholder -->
+            <div style="width:150px; height:150px; border-radius:50%; background:linear-gradient(to right, #ff6b9d, #ff4b83); margin:0 auto; display:flex; align-items:center; justify-content:center; border:4px solid white; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
+                <i class="fas fa-user" style="font-size: 60px; color: white;"></i>
+            </div>
+            <h1>Iffat Shaikh</h1>
+            <p class="tagline">BSc Computer Science Student | Content Writer | Tech Enthusiast</p>
+            <div class="contact-info">
+                <a href="mailto:iffat3782@gmail.com"><i class="fas fa-envelope"></i> iffat3782@gmail.com</a>
+                <a href="tel:+919067260476"><i class="fas fa-phone"></i> +91 9067260476</a>
+                <a href="#"><i class="fas fa-map-marker-alt"></i> Solapur, Maharashtra</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="card objective">
+                <p>A motivated and sincere BSc Computer Science student passionate about technology, content writing, and continuous learning. Eager to gain hands-on experience through internships and grow in a professional environment.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="card">
+                <div class="education-item">
+                    <h3>BSc in Computer Science</h3>
+                    <p>Greenfingers College of Computer and Technology</p>
+                    <p>PAHU, Solapur</p>
+                    <div class="education-details">
+                        <span>Year of Graduation: 2026</span>
+                        <span>Second Year: 82.08%</span>
+                        <span>First Year: 77%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="card">
+                <div class="skills-container">
+                    <div class="skill"><i class="fas fa-code"></i> Python (Basic)</div>
+                    <div class="skill"><i class="fas fa-pen"></i> Content Writing</div>
+                    <div class="skill"><i class="fas fa-comments"></i> Communication</div>
+                    <div class="skill"><i class="fas fa-users"></i> Leadership</div>
+                    <div class="skill"><i class="fas fa-handshake"></i> Teamwork</div>
+                    <div class="skill"><i class="fas fa-clock"></i> Time Management</div>
+                    <div class="skill language-skill"><i class="fas fa-globe"></i> English</div>
+                    <div class="skill language-skill"><i class="fas fa-globe"></i> Hindi</div>
+                    <div class="skill language-skill"><i class="fas fa-globe"></i> Marathi</div>
+                    <div class="skill language-skill"><i class="fas fa-globe"></i> Turkish (basic)</div>
+                    <div class="skill language-skill"><i class="fas fa-globe"></i> German (basic)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <div class="card-content">
+                        <h3>IRIS Classification Model</h3>
+                        <p>A frontend implementation of an IRIS flower classification model using machine learning algorithms to classify different species of iris flowers based on their measurements.</p>
+                        <a href="file:///D:/AI%20engineering%20IRIS%20model/templates/IRIS.html" class="project-link" target="_blank">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-content">
+                        <h3>Exploring Opportunities</h3>
+                        <p>Currently exploring opportunities to work on real-world projects to apply my knowledge and gain practical experience.</p>
+                        <span class="status">In Progress</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quizzes">
+        <div class="container">
+            <h2 class="section-title">Technical Quizzes</h2>
+            <div class="quizzes">
+                <div class="quiz-card">
+                    <div class="card-content">
+                        <h3>College Tech Fest Quiz</h3>
+                        <p>Participated in a technical quiz competition during our annual tech fest, testing knowledge in programming fundamentals, algorithms, and computer science concepts.</p>
+                        <p><strong>Result:</strong> Top 10 among 50 participants</p>
+                    </div>
+                </div>
+                <div class="quiz-card">
+                    <div class="card-content">
+                        <h3>Inter-College Coding Quiz</h3>
+                        <p>Competed in an inter-college coding and computer science quiz representing Greenfingers College. Covered topics included Python programming, data structures, and web technologies.</p>
+                        <p><strong>Result:</strong> Second Runner-up</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements">
+        <div class="container">
+            <h2 class="section-title">Achievements</h2>
+            <div class="achievements">
+                <div class="achievement-card">
+                    <div class="ribbon">Winner</div>
+                    <div class="card-content">
+                        <h3>Inter-College Debate Competition</h3>
+                        <p>Won first prize in the annual inter-college debate competition, showcasing strong communication skills, critical thinking, and persuasive abilities on contemporary technology topics.</p>
+                        <p><strong>Date:</strong> March 2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="card experience-content">
+                <p>No formal experience yet, but actively seeking internship opportunities to gain hands-on experience.</p>
+                <p>I'm eager to contribute to a team, learn from real-world challenges, and grow both professionally and personally.</p>
+                <a href="mailto:iffat3782@gmail.com" class="cta-button">Contact Me for Opportunities</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Iffat Shaikh. All Rights Reserved.</p>
+            <p>Designed with ❤️</p>
+        </div>
+    </footer>
+</body>
+</html>
